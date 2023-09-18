@@ -21,7 +21,7 @@ namespace FizzBuzzTests
         {
             NumberCruncher numberCruncher = new NumberCruncher();
             List<string> results = numberCruncher.CheckNumberRange(_min, _max);
-            Assert.True(results.Where(p => p == Constants.FIZZBUZZ).Count() == 2);
+            Assert.True(results.Where(p => p == Constants.FIZZBUZZ).Count() == 0);
         }
 
         [Fact] 

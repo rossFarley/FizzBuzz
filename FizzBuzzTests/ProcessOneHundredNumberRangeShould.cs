@@ -21,7 +21,7 @@ namespace FizzBuzzTests
         {
             NumberCruncher numberCruncher = new NumberCruncher();
             List<string> results = numberCruncher.CheckNumberRange(_min, _max);
-            Assert.True(results.Where(p => p == Constants.FIZZBUZZ).Count() == 14);
+            Assert.True(results.Where(p => p == Constants.BUZZ).Count() == 14);
         }
 
         [Fact]
@@ -29,7 +29,7 @@ namespace FizzBuzzTests
         {
             NumberCruncher numberCruncher = new NumberCruncher();
             List<string> results = numberCruncher.CheckNumberRange(_min, _max);
-            Assert.True(results.Where(p => p == Constants.BUZZ).Count() == 27);
+            Assert.True(results.Where(p => p == Constants.FIZZ).Count() == 27);
         }
 
         [Fact]
@@ -37,7 +37,7 @@ namespace FizzBuzzTests
         {
             NumberCruncher numberCruncher = new NumberCruncher();
             List<string> results = numberCruncher.CheckNumberRange(_min, _max);
-            Assert.True(results.Where(p => p == Constants.FIZZ).Count() == 6);
+            Assert.True(results.Where(p => p == Constants.FIZZBUZZ).Count() == 6);
         }
 
         [Fact]

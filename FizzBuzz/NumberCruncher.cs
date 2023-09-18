@@ -6,30 +6,46 @@ namespace FizzBuzz
 {
     public class NumberCruncher
     {
-        public string CheckNumber(int number)
+        private List<string> _rules;
+        private RuleTypeFactory _ruleTypeFactory;
+
+        public NumberCruncher()
         {
-            RuleTypeFactory ruleTypeFactory = new RuleTypeFactory();
-            List<string> rules = new List<string>
+            _ruleTypeFactory = new RuleTypeFactory();
+            _rules = new List<string>
             {
                 "FizzBuzz",
                 "Fizz",
                 "Buzz"
             };
+        }
 
-            foreach (string rule in rules)
-            {
-                RuleType ruleType = ruleTypeFactory.Create(rule);
-                if (ruleType != null)
-                {
-                    if (ruleType.CheckNumber(number)) { return ruleType.Result; }
-                }
-            }
-            return number.ToString();
+        public string CheckNumber(int number)
+        {
+            return ProcessNumber(number);
         }
 
         public List<string> CheckNumberRange(int min, int max)
         {
-            return new List<string>();
+            List<string> result = new List<string>();
+            for (int i = min; i <= max; i++)
+            {
+                result.Add(ProcessNumber(i));
+            }
+            return result;
+        }
+
+        private string ProcessNumber(int value)
+        {
+            foreach (string rule in _rules)
+            {
+                RuleType ruleType = _ruleTypeFactory.Create(rule);
+                if (ruleType != null)
+                {
+                    if (ruleType.CheckNumber(value)) { return ruleType.Result; }
+                }
+            }
+            return value.ToString();
         }
     }
 }
