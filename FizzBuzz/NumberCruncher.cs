@@ -6,5 +6,10 @@
         {
             return string.Empty;
         }
+
+        public List<string> CheckNumberRange(int min, int max)
+        {
+            return new List<string>();
+        }
     }
 }
